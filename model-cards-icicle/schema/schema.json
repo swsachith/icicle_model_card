@@ -1,15 +1,111 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ICICLE Model Card",
   "type": "object",
   "properties": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "description": "The name of the Model Card"
     },
     "version": {
-      "type": "string"
+      "type": "string",
+      "description": "The version of the Model Card"
     },
-    "framework": {
-      "type": "string"
+    "description": {
+      "type": "string",
+      "description": "A brief description of the Model Card"
+    },
+    "author": {
+      "type": "string",
+      "description": "The author or creator of the Model Card"
+    },
+    "input_data": {
+      "type": "string",
+      "description": "The ID of the Datasheet"
+    },
+    "output_data": {
+      "type": "string",
+      "description": "The ID of the output if any"
+    },
+    "ai_model": {
+      "description": "Description of the AI Model",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the model.",
+          "type": "string"
+        },
+        "version": {
+          "type": "string",
+          "description": "The version of the Model"
+        },
+        "description": {
+          "description": "Description of the AI Model.",
+          "type": "string"
+        },
+        "owner": {
+          "type": "string",
+          "description": "The owner of the Model"
+        },
+        "location": {
+          "description": "Downloadable URL of the model",
+          "type": "string"
+        },
+        "license": {
+          "description": "Licence the model",
+          "type": "string"
+        }
+      }
+    },
+    "bias_analysis": {
+      "description": "Bias analysis of the Model Card.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Name of the Bias Scanner",
+          "type": "string"
+        },
+        "bias_metrics": {
+          "description": "Metrics of the bias scanner",
+          "type": "array",
+          "items": {
+            "$ref": "#/fields/metrics"
+          }
+        }
+      }
+    },
+    "xai_analysis": {
+      "description": "Explainability analysis of the Model Card.",
+      "type": "object",
+      "properties": {
+        "bias_metrics": {
+          "description": "Metrics of the bias scanner",
+          "type": "array",
+          "items": {
+            "$ref": "#/fields/metrics"
+          }
+        }
+      }
     }
   },
-  "required": ["name", "version", "framework"]
+  "fields": {
+    "metrics": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "description": "Name of the metric",
+          "type": "string"
+        },
+        "value": {
+          "description": "The value of the performance metric.",
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "name",
+    "author",
+    "input_data"
+  ]
 }
