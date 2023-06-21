@@ -1,6 +1,8 @@
 from dataclasses import dataclass, field
 from typing import List
 from dataclasses import dataclass
+import json
+from json import JSONEncoder
 
 
 @dataclass
@@ -22,23 +24,39 @@ class Metric:
 @dataclass
 class BiasAnalysis:
     name: str
-    numbers: List[Metric] = field(default_factory=list)
+    metrics: List[Metric] = field(default_factory=list)
 
 
 @dataclass
 class ExplainabilityAnalysis:
     name: str
-    numbers: List[Metric] = field(default_factory=list)
+    metrics: List[Metric] = field(default_factory=list)
 
 
 @dataclass
 class ModelCard:
     name: str
     version: str
-    description: str
+    short_description: str
+    full_description: str
+    keywords: str
     author: str
     input_data: str
     output_data: str
-    model: AIModel
+    ai_model: AIModel
     bias_analysis: BiasAnalysis
     xai_analysis: ExplainabilityAnalysis
+
+    def __str__(self):
+        """
+        Overriding the __str__ to pretty print the model card in Json format.
+        :return:
+        """
+        return json.dumps(self.__dict__, cls=ModelCardJSONEncoder, indent=2)
+
+
+class ModelCardJSONEncoder(JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, (ModelCard, Metric, AIModel, ExplainabilityAnalysis, BiasAnalysis)):
+            return obj.__dict__
+        return super().default(obj)
