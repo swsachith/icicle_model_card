@@ -11,9 +11,17 @@
       "type": "string",
       "description": "The version of the Model Card"
     },
-    "description": {
+    "short_description": {
       "type": "string",
       "description": "A brief description of the Model Card"
+    },
+    "full_description": {
+      "type": "string",
+      "description": "A comprehensive description of the Model Card"
+    },
+    "keywords": {
+      "type": "string",
+      "description": "Keywords for the model card"
     },
     "author": {
       "type": "string",
@@ -26,6 +34,10 @@
     "output_data": {
       "type": "string",
       "description": "The ID of the output if any"
+    },
+    "documentation": {
+      "type": "string",
+      "description": "URL for documentation if available"
     },
     "ai_model": {
       "description": "Description of the AI Model",
