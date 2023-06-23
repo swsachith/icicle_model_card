@@ -8,5 +8,9 @@ setup(
     license='BSD-3-Clause',
     author='Sachith Withana',
     author_email='swithana@iu.edu',
-    description='ICICLE Model Card Tool'
+    description='ICICLE Model Card Tool',
+    install_requires=[
+        'attrs~=23.1.0',
+        'jsonschema~=4.17.3'
+    ]
 )
