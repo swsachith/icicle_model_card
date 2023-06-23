@@ -1,5 +1,5 @@
 from dataclasses import dataclass, field
-from typing import List
+from typing import List, Optional
 from dataclasses import dataclass
 import json
 from json import JSONEncoder
@@ -41,11 +41,11 @@ class ModelCard:
     full_description: str
     keywords: str
     author: str
-    input_data: str
-    output_data: str
-    ai_model: AIModel
-    bias_analysis: BiasAnalysis
-    xai_analysis: ExplainabilityAnalysis
+    input_data: Optional[str] = None
+    output_data: Optional[str] = None
+    ai_model: Optional[AIModel] = None
+    bias_analysis: Optional[BiasAnalysis] = None
+    xai_analysis: Optional[ExplainabilityAnalysis] = None
 
     def __str__(self):
         """

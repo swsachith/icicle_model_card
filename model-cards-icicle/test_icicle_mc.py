@@ -57,6 +57,30 @@ class PersonTestCase(unittest.TestCase):
 
         validate(json.loads(mc_json), schema)
 
+    def test_json_conversion(self):
+        """
+        This tests data insertion via converting it to json, converting back to python.
+        :return:
+        """
+        mc = ModelCard(
+            name="tset-mc",
+            version="test-version",
+            short_description="short desc",
+            full_description="full_desc",
+            keywords="test keyword",
+            author="test author"
+        )
+
+        mc.input_data = "http://icicle-repo/datasheet/2213"
+
+        # Convert the dataclass object to JSON string using the custom encoder
+        mc_json = json.dumps(mc, cls=ModelCardJSONEncoder, indent=4)
+
+        # convert the json string back to python model
+        mc_converted = json.loads(mc_json)
+
+        self.assertEqual(mc_converted['input_data'], "http://icicle-repo/datasheet/2213")
+
 
 if __name__ == '__main__':
     unittest.main()
