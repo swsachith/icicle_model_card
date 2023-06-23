@@ -1,6 +1,6 @@
-from icicle_model_card import *
-import unittest
+from icicle_model_card.icicle_model_card import *
 import json
+import unittest
 from jsonschema import validate
 
 
@@ -52,7 +52,7 @@ class PersonTestCase(unittest.TestCase):
         # Convert the dataclass object to JSON string using the custom encoder
         mc_json = json.dumps(self.model_card, cls=ModelCardJSONEncoder, indent=4)
 
-        with open('schema/schema.json', 'r') as schema_file:
+        with open('../icicle_model_card/schema/schema.json', 'r') as schema_file:
             schema = json.load(schema_file)
 
         validate(json.loads(mc_json), schema)
