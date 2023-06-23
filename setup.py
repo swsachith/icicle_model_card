@@ -1,9 +1,9 @@
 from setuptools import setup
 
 setup(
-    name='model-cards-icicle',
+    name='icicle_model_card',
     version='0.1',
-    packages=['tests', 'model-cards-icicle'],
+    packages=['tests', 'icicle_model_card'],
     url='https://github.com/swsachith/model-card-icicle.git',
     license='BSD-3-Clause',
     author='Sachith Withana',
