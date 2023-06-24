@@ -15,8 +15,8 @@ class AIModel:
     description: str
     owner: str
     location: str
-    licence: Optional[str] = None
-    model_structure: Optional[str] = None
+    licence: Optional[str] = ""
+    model_structure: Optional[str] = ""
 
 
 @dataclass
@@ -45,8 +45,8 @@ class ModelCard:
     full_description: str
     keywords: str
     author: str
-    input_data: Optional[str] = None
-    output_data: Optional[str] = None
+    input_data: Optional[str] = ""
+    output_data: Optional[str] = ""
     ai_model: Optional[AIModel] = None
     bias_analysis: Optional[BiasAnalysis] = None
     xai_analysis: Optional[ExplainabilityAnalysis] = None
