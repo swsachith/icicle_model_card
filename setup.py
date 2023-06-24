@@ -3,7 +3,7 @@ import glob
 
 setup(
     name='icicle_model_card',
-    version='0.11',
+    version='0.12',
     packages=['tests', 'icicle_model_card'],
     url='https://github.com/swsachith/icicle_model_card.git',
     license='BSD-3-Clause',
