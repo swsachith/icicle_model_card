@@ -1,5 +1,5 @@
 from dataclasses import dataclass, field
-from typing import List, Optional
+from typing import List, Optional, Callable
 from dataclasses import dataclass
 import json
 from json import JSONEncoder
@@ -58,18 +58,24 @@ class ModelCard:
         """
         return json.dumps(self.__dict__, cls=ModelCardJSONEncoder, indent=2)
 
-    def validate(self):
+
+class Validator:
+    def validate(self, model_card):
         """
         Validates the current model against the Model Card schema
         :return:
         """
         # Convert the dataclass object to JSON string using the custom encoder
-        mc_json = json.dumps(self, cls=ModelCardJSONEncoder, indent=4)
+        mc_json = json.dumps(model_card, cls=ModelCardJSONEncoder, indent=4)
 
-        with open(SCHEMA_JSON, 'r') as schema_file:
-            schema = json.load(schema_file)
+        try:
+            with open(SCHEMA_JSON, 'r') as schema_file:
+                schema = json.load(schema_file)
 
-        validate(json.loads(mc_json), schema)
+            validate(json.loads(mc_json), schema)
+            return True
+        except Exception:
+            return False
 
 
 class ModelCardJSONEncoder(JSONEncoder):
@@ -77,3 +83,4 @@ class ModelCardJSONEncoder(JSONEncoder):
         if isinstance(obj, (ModelCard, Metric, AIModel, ExplainabilityAnalysis, BiasAnalysis)):
             return obj.__dict__
         return super().default(obj)
+

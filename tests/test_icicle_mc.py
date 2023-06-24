@@ -68,10 +68,9 @@ class PersonTestCase(unittest.TestCase):
         This tests the validate function.
         :return:
         """
-        try:
-            self.model_card.validate()
-        except:
-            self.fail("Validation Error!")
+        validator = Validator()
+        is_valid = validator.validate(model_card=self.model_card)
+        self.assertTrue(is_valid)
 
     def test_json_conversion(self):
         """
