@@ -74,7 +74,8 @@ class Validator:
 
             validate(json.loads(mc_json), schema)
             return True
-        except Exception:
+        except Exception as e:
+            print(e)
             return False
 
 
