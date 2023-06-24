@@ -1,6 +1,7 @@
 from icicle_model_card.icicle_model_card import *
 import json
 import unittest
+
 from jsonschema import validate
 import os.path
 
@@ -68,8 +69,15 @@ class PersonTestCase(unittest.TestCase):
         This tests the validate function.
         :return:
         """
-        validator = Validator()
-        is_valid = validator.validate(model_card=self.model_card)
+        mc = ModelCard(
+            name="tset-mc",
+            version="test-version",
+            short_description="short desc",
+            full_description="full_desc",
+            keywords="test keyword",
+            author="test author"
+        )
+        is_valid = validate_mc(model_card=mc)
         self.assertTrue(is_valid)
 
     def test_json_conversion(self):

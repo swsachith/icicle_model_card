@@ -41,7 +41,7 @@
     },
     "ai_model": {
       "description": "Description of the AI Model",
-      "type": "object",
+      "type": ["object", "null"],
       "properties": {
         "name": {
           "description": "The name of the model.",
@@ -75,7 +75,7 @@
     },
     "bias_analysis": {
       "description": "Bias analysis of the Model Card.",
-      "type": "object",
+      "type": ["object", "null"],
       "properties": {
         "name": {
           "description": "Name of the Bias Scanner",
@@ -92,7 +92,7 @@
     },
     "xai_analysis": {
       "description": "Explainability analysis of the Model Card.",
-      "type": "object",
+      "type": ["object", "null"],
       "properties": {
         "bias_metrics": {
           "description": "Metrics of the bias scanner",
@@ -121,7 +121,6 @@
   },
   "required": [
     "name",
-    "author",
-    "input_data"
+    "author"
   ]
 }
