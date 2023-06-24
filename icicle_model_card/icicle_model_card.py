@@ -12,7 +12,8 @@ class AIModel:
     description: str
     owner: str
     location: str
-    licence: str
+    licence: Optional[str] = None
+    model_structure: Optional[str] = None
 
 
 @dataclass
