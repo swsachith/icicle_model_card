@@ -1,4 +1,5 @@
 from setuptools import setup
+import glob
 
 setup(
     name='icicle_model_card',
@@ -9,6 +10,7 @@ setup(
     author='Sachith Withana',
     author_email='swithana@iu.edu',
     description='ICICLE Model Card Tool',
+    data_files=glob.glob('schema/**'),
     install_requires=[
         'attrs~=23.1.0',
         'jsonschema~=4.17.3'

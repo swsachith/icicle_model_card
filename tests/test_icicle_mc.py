@@ -2,6 +2,9 @@ from icicle_model_card.icicle_model_card import *
 import json
 import unittest
 from jsonschema import validate
+import os.path
+
+SCHEMA_JSON = os.path.join(os.path.dirname(__file__), '../icicle_model_card/schema', 'schema.json')
 
 
 class PersonTestCase(unittest.TestCase):
@@ -55,7 +58,20 @@ class PersonTestCase(unittest.TestCase):
         with open('../icicle_model_card/schema/schema.json', 'r') as schema_file:
             schema = json.load(schema_file)
 
-        validate(json.loads(mc_json), schema)
+        try:
+            validate(json.loads(mc_json), schema)
+        except:
+            self.fail("Validation Error!")
+
+    def test_validate(self):
+        """
+        This tests the validate function.
+        :return:
+        """
+        try:
+            self.model_card.validate()
+        except:
+            self.fail("Validation Error!")
 
     def test_json_conversion(self):
         """

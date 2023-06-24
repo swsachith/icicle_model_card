@@ -3,7 +3,10 @@ from typing import List, Optional
 from dataclasses import dataclass
 import json
 from json import JSONEncoder
+from jsonschema import validate
+import os.path
 
+SCHEMA_JSON = os.path.join(os.path.dirname(__file__), 'schema', 'schema.json')
 
 @dataclass
 class AIModel:
@@ -54,6 +57,19 @@ class ModelCard:
         :return:
         """
         return json.dumps(self.__dict__, cls=ModelCardJSONEncoder, indent=2)
+
+    def validate(self):
+        """
+        Validates the current model against the Model Card schema
+        :return:
+        """
+        # Convert the dataclass object to JSON string using the custom encoder
+        mc_json = json.dumps(self, cls=ModelCardJSONEncoder, indent=4)
+
+        with open(SCHEMA_JSON, 'r') as schema_file:
+            schema = json.load(schema_file)
+
+        validate(json.loads(mc_json), schema)
 
 
 class ModelCardJSONEncoder(JSONEncoder):
