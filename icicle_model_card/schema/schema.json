@@ -41,7 +41,10 @@
     },
     "ai_model": {
       "description": "Description of the AI Model",
-      "type": ["object", "null"],
+      "type": [
+        "object",
+        "null"
+      ],
       "properties": {
         "name": {
           "description": "The name of the model.",
@@ -77,56 +80,59 @@
           "items": {
             "$ref": "#/fields/metrics"
           }
-      }
-    },
-    "bias_analysis": {
-      "description": "Bias analysis of the Model Card.",
-      "type": ["object", "null"],
-      "properties": {
-        "name": {
-          "description": "Name of the Bias Scanner",
-          "type": "string"
-        },
-        "bias_metrics": {
-          "description": "Metrics of the bias scanner",
-          "type": "array",
-          "items": {
-            "$ref": "#/fields/metrics"
+        }
+      },
+      "bias_analysis": {
+        "description": "Bias analysis of the Model Card.",
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "name": {
+            "description": "Name of the Bias Scanner",
+            "type": "string"
+          },
+          "bias_metrics": {
+            "description": "Metrics of the bias scanner",
+            "type": "array",
+            "items": {
+              "$ref": "#/fields/metrics"
+            }
+          }
+        }
+      },
+      "xai_analysis": {
+        "description": "Explainability analysis of the Model Card.",
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "bias_metrics": {
+            "description": "Metrics of the bias scanner",
+            "type": "array",
+            "items": {
+              "$ref": "#/fields/metrics"
+            }
           }
         }
       }
     },
-    "xai_analysis": {
-      "description": "Explainability analysis of the Model Card.",
-      "type": ["object", "null"],
-      "properties": {
-        "bias_metrics": {
-          "description": "Metrics of the bias scanner",
-          "type": "array",
-          "items": {
-            "$ref": "#/fields/metrics"
+    "fields": {
+      "metrics": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "description": "Name of the metric",
+            "type": "string"
+          },
+          "value": {
+            "description": "The value of the performance metric.",
+            "type": "string"
           }
         }
       }
     }
-  },
-  "fields": {
-    "metrics": {
-      "type": "object",
-      "properties": {
-        "key": {
-          "description": "Name of the metric",
-          "type": "string"
-        },
-        "value": {
-          "description": "The value of the performance metric.",
-          "type": "string"
-        }
-      }
-    }
-  },
-  "required": [
-    "name",
-    "author"
-  ]
+  }
 }
