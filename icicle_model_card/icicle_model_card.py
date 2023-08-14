@@ -9,6 +9,13 @@ import os.path
 SCHEMA_JSON = os.path.join(os.path.dirname(__file__), 'schema', 'schema.json')
 
 @dataclass
+class Metric:
+    key: str
+    value: str
+
+
+
+@dataclass
 class AIModel:
     name: str
     version: str
@@ -17,12 +24,7 @@ class AIModel:
     location: str
     licence: Optional[str] = ""
     model_structure: Optional[str] = ""
-
-
-@dataclass
-class Metric:
-    key: str
-    value: str
+    metrics: List[Metric] = field(default_factory=list)
 
 
 @dataclass

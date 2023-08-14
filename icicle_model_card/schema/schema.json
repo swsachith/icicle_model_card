@@ -70,7 +70,13 @@
         "structure": {
           "description": "Structure of the model",
           "type": "string"
-        }
+        },
+        "model_metrics": {
+          "description": "Metrics of the AI Model",
+          "type": "array",
+          "items": {
+            "$ref": "#/fields/metrics"
+          }
       }
     },
     "bias_analysis": {
