@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='icicle_model_card',
-    version='0.133',
+    version='0.2',
     packages=['tests', 'icicle_model_card'],
     package_data={'icicle_model_card': ['schema/schema.json']},
     include_package_data=True,
@@ -13,6 +13,6 @@ setup(
     description='ICICLE Model Card Tool',
     install_requires=[
         'attrs~=23.1.0',
-        'jsonschema~=4.17.3'
+        'jsonschema~=4.18.6'
     ]
 )

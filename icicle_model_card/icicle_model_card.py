@@ -5,6 +5,8 @@ import json
 from json import JSONEncoder
 from jsonschema import validate
 import os.path
+from icicle_model_card.fairlearn_bias import BiasAnalyzer
+
 
 SCHEMA_JSON = os.path.join(os.path.dirname(__file__), 'schema', 'schema.json')
 
@@ -59,6 +61,12 @@ class ModelCard:
         :return:
         """
         return json.dumps(self.__dict__, cls=ModelCardJSONEncoder, indent=2)
+
+    def populate_bias(self, dataset, true_labels, predicted_labels, sensitive_feature_name, sensitive_feature_data, model):
+        bias_analyzer = BiasAnalyzer(dataset, true_labels, predicted_labels, sensitive_feature_name,
+                                          sensitive_feature_data, model)
+
+        self.bias_analysis = bias_analyzer.calculate_bias_metrics()
 
 
 def validate_mc(model_card):
