@@ -16,7 +16,7 @@ class PersonTestCase(unittest.TestCase):
         owner="PyTorch",
         location="pytorch.org",
         licence="testLicence")
-    bias_analysis = BiasAnalysis("BiasTest", [Metric("bias1", 0.5), Metric("bias2", 0.8)])
+    bias_analysis = BiasAnalysis(0.1, 0.2, 20, 10, 10, 20)
     xai_analysis = ExplainabilityAnalysis("XAI Test 2", [Metric("xai1", 0.5), Metric("xai2", 0.8)])
 
     model_card = ModelCard(
@@ -41,12 +41,13 @@ class PersonTestCase(unittest.TestCase):
         # Convert the dataclass object to JSON string using the custom encoder
         mc_json = json.dumps(self.model_card, cls=ModelCardJSONEncoder, indent=2)
 
+        print(self.model_card)
         # Parse the JSON string back to a dictionary
         parsed_mc = json.loads(mc_json)
 
         self.assertEqual(parsed_mc['name'], "icicle-camera-traps")
         self.assertEqual(parsed_mc['ai_model']['name'], "DenseNet")
-        self.assertEqual(parsed_mc['bias_analysis']['metrics'][0]["value"], 0.5)
+        self.assertEqual(parsed_mc['bias_analysis']['demographic_parity_difference'], 0.1)
 
     def test_schema_compatibility(self):
         """

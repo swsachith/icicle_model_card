@@ -82,26 +82,20 @@
           }
         }
       },
+
       "bias_analysis": {
-        "description": "Bias analysis of the Model Card.",
-        "type": [
-          "object",
-          "null"
-        ],
+        "type": "object",
         "properties": {
-          "name": {
-            "description": "Name of the Bias Scanner",
-            "type": "string"
-          },
-          "bias_metrics": {
-            "description": "Metrics of the bias scanner",
-            "type": "array",
-            "items": {
-              "$ref": "#/fields/metrics"
-            }
-          }
-        }
+          "demographic_parity_difference": {"type": "float"},
+          "equal_odds_difference": {"type": "float"},
+          "true_positives": {"type": "integer"},
+          "true_negatives": {"type": "integer"},
+          "false_positives": {"type": "integer"},
+          "false_negatives": {"type": "integer"}
+        },
+        "required": ["demographic_parity_difference", "equal_odds_difference"]
       },
+
       "xai_analysis": {
         "description": "Explainability analysis of the Model Card.",
         "type": [

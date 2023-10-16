@@ -13,6 +13,8 @@ setup(
     description='ICICLE Model Card Tool',
     install_requires=[
         'attrs~=23.1.0',
-        'jsonschema~=4.18.6'
+        'jsonschema~=4.18.6',
+        'fairlearn~=0.9.0',
+        'scikit-learn~=1.3.1'
     ]
 )

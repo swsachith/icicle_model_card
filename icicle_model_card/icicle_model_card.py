@@ -31,8 +31,12 @@ class AIModel:
 
 @dataclass
 class BiasAnalysis:
-    name: str
-    metrics: List[Metric] = field(default_factory=list)
+    demographic_parity_difference: float
+    equal_odds_difference: float
+    true_positives: int
+    true_negatives: int
+    false_positives: int
+    false_negatives: int
 
 
 @dataclass

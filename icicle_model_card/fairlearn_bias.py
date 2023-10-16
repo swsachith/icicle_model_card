@@ -1,5 +1,5 @@
 from fairlearn.metrics import demographic_parity_difference, equalized_odds_difference
-
+from sklearn.metrics import confusion_matrix
 
 class BiasAnalyzer:
     """
@@ -19,4 +19,11 @@ class BiasAnalyzer:
         equal_odds_diff = equalized_odds_difference(self.true_labels, self.predicted_labels,
                                                     sensitive_features=self.sensitive_data)
 
-        return {"demographic_parity_diff": demographic_parity, "equal_odds_difference": equal_odds_diff}
+        tn, fp, fn, tp = confusion_matrix(self.true_labels, self.predicted_labels).ravel()
+
+        return {"demographic_parity_diff": demographic_parity,
+                "equal_odds_difference": equal_odds_diff,
+                "true_positives": int(tp),
+                "true_negatives": int(tn),
+                "false_positives": int(fp),
+                "false_negatives": int(fn)}
