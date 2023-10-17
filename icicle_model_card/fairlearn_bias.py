@@ -21,9 +21,20 @@ class BiasAnalyzer:
 
         tn, fp, fn, tp = confusion_matrix(self.true_labels, self.predicted_labels).ravel()
 
+        false_positive_rate = fp / (fp + tn)
+        false_negative_rate = fn / (fn + tp)
+        true_positive_rate = tp / (tp + fn)
+        true_negative_rate = tn / (tn + fp)
+
         return {"demographic_parity_diff": demographic_parity,
                 "equal_odds_difference": equal_odds_diff,
                 "true_positives": int(tp),
                 "true_negatives": int(tn),
                 "false_positives": int(fp),
-                "false_negatives": int(fn)}
+                "false_negatives": int(fn),
+                "false_positive_rate": int(false_positive_rate),
+                "false_negative_rate": int(false_negative_rate),
+                "true_positive_rate": int(true_positive_rate),
+                "true_negative_rate": int(true_negative_rate)
+                }
+

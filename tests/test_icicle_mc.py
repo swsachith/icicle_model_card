@@ -16,7 +16,7 @@ class PersonTestCase(unittest.TestCase):
         owner="PyTorch",
         location="pytorch.org",
         licence="testLicence")
-    bias_analysis = BiasAnalysis(0.1, 0.2, 20, 10, 10, 20)
+    bias_analysis = BiasAnalysis(0.1, 0.2, 20, 10, 10, 20, 0.1, 0.2, 0.2, 0.1)
     xai_analysis = ExplainabilityAnalysis("XAI Test 2", [Metric("xai1", 0.5), Metric("xai2", 0.8)])
 
     model_card = ModelCard(

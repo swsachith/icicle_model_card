@@ -91,7 +91,11 @@
           "true_positives": {"type": "integer"},
           "true_negatives": {"type": "integer"},
           "false_positives": {"type": "integer"},
-          "false_negatives": {"type": "integer"}
+          "false_negatives": {"type": "integer"},
+          "false_positive_rate": {"type": "float"},
+          "false_negative_rate": {"type": "float"},
+          "true_positive_rate": {"type": "float"},
+          "true_negative_rate": {"type": "float"}
         },
         "required": ["demographic_parity_difference", "equal_odds_difference"]
       },

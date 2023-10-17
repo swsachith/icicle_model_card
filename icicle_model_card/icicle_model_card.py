@@ -37,6 +37,10 @@ class BiasAnalysis:
     true_negatives: int
     false_positives: int
     false_negatives: int
+    false_positive_rate: float
+    false_negative_rate: float
+    true_positive_rate: float
+    true_negative_rate: float
 
 
 @dataclass
