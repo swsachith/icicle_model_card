@@ -32,9 +32,9 @@ class BiasAnalyzer:
                 "true_negatives": int(tn),
                 "false_positives": int(fp),
                 "false_negatives": int(fn),
-                "false_positive_rate": int(false_positive_rate),
-                "false_negative_rate": int(false_negative_rate),
-                "true_positive_rate": int(true_positive_rate),
-                "true_negative_rate": int(true_negative_rate)
+                "false_positive_rate": float(false_positive_rate),
+                "false_negative_rate": float(false_negative_rate),
+                "true_positive_rate": float(true_positive_rate),
+                "true_negative_rate": float(true_negative_rate)
                 }
 
