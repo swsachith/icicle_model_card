@@ -7,6 +7,11 @@
 !pip install 'git+https://github.com/swsachith/icicle_model_card.git'
 ```
 
+For developer run the following instead to install locally:
+```shell
+pip install -e <local_git_dir>/icicle_model_card
+```
+
 2. Import the Model Card
 ```python
 from icicle_model_card.icicle_model_card import ModelCard
