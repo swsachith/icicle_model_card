@@ -42,8 +42,7 @@
     "ai_model": {
       "description": "Description of the AI Model",
       "type": [
-        "object",
-        "null"
+        "object"
       ],
       "properties": {
         "name": {
@@ -74,6 +73,34 @@
           "description": "Structure of the model",
           "type": "string"
         },
+        "framework": {
+          "type": "string",
+          "enum": [
+            "sklearn",
+            "tensorflow",
+            "pytorch",
+            "other"
+          ]
+        },
+        "model_type": {
+          "type": "string",
+          "enum": [
+            "cnn",
+            "decision_tree",
+            "dnn",
+            "rnn",
+            "svm",
+            "kmeans",
+            "llm",
+            "random_forest",
+            "lstm",
+            "other"
+          ]
+        },
+        "test_accuracy": {
+          "description": "Accuracy of the model for the test data",
+          "type": "number"
+        },
         "model_metrics": {
           "description": "Metrics of the AI Model",
           "type": "array",
@@ -82,53 +109,104 @@
           }
         }
       },
-
-      "bias_analysis": {
-        "type": "object",
-        "properties": {
-          "demographic_parity_difference": {"type": "float"},
-          "equal_odds_difference": {"type": "float"},
-          "true_positives": {"type": "integer"},
-          "true_negatives": {"type": "integer"},
-          "false_positives": {"type": "integer"},
-          "false_negatives": {"type": "integer"},
-          "false_positive_rate": {"type": "float"},
-          "false_negative_rate": {"type": "float"},
-          "true_positive_rate": {"type": "float"},
-          "true_negative_rate": {"type": "float"}
+      "required": [
+        "name",
+        "version",
+        "description",
+        "owner",
+        "location",
+        "license",
+        "framework",
+        "test_accuracy"
+      ]
+    },
+    "bias_analysis": {
+      "type": "object",
+      "properties": {
+        "demographic_parity_difference": {
+          "type": "number"
         },
-        "required": ["demographic_parity_difference", "equal_odds_difference"]
+        "equal_odds_difference": {
+          "type": "number"
+        },
+        "true_positives": {
+          "type": "integer"
+        },
+        "true_negatives": {
+          "type": "integer"
+        },
+        "false_positives": {
+          "type": "integer"
+        },
+        "false_negatives": {
+          "type": "integer"
+        },
+        "false_positive_rate": {
+          "type": "number"
+        },
+        "false_negative_rate": {
+          "type": "number"
+        },
+        "true_positive_rate": {
+          "type": "number"
+        },
+        "true_negative_rate": {
+          "type": "number"
+        }
       },
-
-      "xai_analysis": {
-        "description": "Explainability analysis of the Model Card.",
-        "type": [
-          "object",
-          "null"
-        ],
-        "properties": {
-          "bias_metrics": {
-            "description": "Metrics of the bias scanner",
-            "type": "array",
-            "items": {
-              "$ref": "#/fields/metrics"
-            }
+      "required": [
+        "demographic_parity_difference",
+        "equal_odds_difference",
+        "true_positives",
+        "true_negatives",
+        "false_positives",
+        "false_negatives",
+        "false_positive_rate",
+        "false_negative_rate",
+        "true_positive_rate",
+        "true_negative_rate"
+      ]
+    },
+    "xai_analysis": {
+      "description": "Explainability analysis of the Model Card.",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "bias_metrics": {
+          "description": "Metrics of the bias scanner",
+          "type": "array",
+          "items": {
+            "$ref": "#/fields/metrics"
           }
         }
       }
-    },
-    "fields": {
-      "metrics": {
-        "type": "object",
-        "properties": {
-          "key": {
-            "description": "Name of the metric",
-            "type": "string"
-          },
-          "value": {
-            "description": "The value of the performance metric.",
-            "type": "string"
-          }
+    }
+  },
+  "required": [
+        "name",
+        "version",
+        "short_description",
+        "full_description",
+        "author",
+        "keywords",
+        "input_data",
+        "output_data",
+        "ai_model",
+        "bias_analysis"
+      ],
+  "fields": {
+    "metrics": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "description": "Name of the metric",
+          "type": "string"
+        },
+        "value": {
+          "description": "The value of the performance metric.",
+          "type": "string"
         }
       }
     }

@@ -24,7 +24,10 @@ class AIModel:
     description: str
     owner: str
     location: str
-    licence: Optional[str] = ""
+    license: str
+    framework: str
+    model_type: str
+    test_accuracy: float
     model_structure: Optional[str] = ""
     metrics: List[Metric] = field(default_factory=list)
 
