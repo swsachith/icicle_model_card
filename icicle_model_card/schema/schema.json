@@ -117,7 +117,8 @@
         "location",
         "license",
         "framework",
-        "test_accuracy"
+        "test_accuracy",
+        "model_type"
       ]
     },
     "bias_analysis": {
