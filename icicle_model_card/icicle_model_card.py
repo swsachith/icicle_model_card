@@ -99,6 +99,16 @@ def validate_mc(model_card):
         return False
 
 
+def save_mc(model_card, file_location):
+    """
+    Saves the model card as a json file.
+    """
+    mc_json = json.dumps(model_card, cls=ModelCardJSONEncoder, indent=4)
+
+    with open(file_location, 'w') as json_file:
+        json.dump(mc_json, json_file)
+
+
 class ModelCardJSONEncoder(JSONEncoder):
     def default(self, obj):
         if isinstance(obj, (ModelCard, Metric, AIModel, ExplainabilityAnalysis, BiasAnalysis)):
