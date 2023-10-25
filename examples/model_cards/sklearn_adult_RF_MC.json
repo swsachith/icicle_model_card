@@ -1,1 +1,41 @@
-"{\n    \"name\": \"UCI Adult Data Analysis via Random Forest\",\n    \"version\": \"0.1\",\n    \"short_description\": \"UCI Adult Data analysis using SKLearn and Random Forest\",\n    \"full_description\": \"Using a Random Forest to train on UCI Adult Data Analysis\",\n    \"keywords\": \"uci adult, sklearn, random_forest, explainability, fairness, fairlearn, shap\",\n    \"author\": \"Sachith Withana\",\n    \"input_data\": \"https://archive.ics.uci.edu/dataset/2/adult\",\n    \"output_data\": \"https://github.iu.edu/swithana/mcwork/svm/adult_model.pkl\",\n    \"ai_model\": {\n        \"name\": \"UCI Adult Random Forest model\",\n        \"version\": \"0.1\",\n        \"description\": \"Census classification problem using Random Forest\",\n        \"owner\": \"Sachith Withana\",\n        \"location\": \"https://github.iu.edu/swithana/mcwork/randomforest/adult_model.pkl\",\n        \"license\": \"BSD-3 Clause\",\n        \"framework\": \"sklearn\",\n        \"model_type\": \"random_forest\",\n        \"test_accuracy\": 0.8616612927990174,\n        \"model_structure\": null,\n        \"metrics\": [\n            {\n                \"key\": \"Test loss\",\n                \"value\": 0.7\n            }\n        ]\n    },\n    \"bias_analysis\": {\n        \"demographic_parity_diff\": 0.18807341711946762,\n        \"equal_odds_difference\": 0.13578013433668856,\n        \"true_positives\": 1011,\n        \"true_negatives\": 4601,\n        \"false_positives\": 341,\n        \"false_negatives\": 560,\n        \"false_positive_rate\": 0.06900040469445569,\n        \"false_negative_rate\": 0.35646085295989816,\n        \"true_positive_rate\": 0.6435391470401018,\n        \"true_negative_rate\": 0.9309995953055443\n    },\n    \"xai_analysis\": null\n}"
+{
+    "name": "UCI Adult Data Analysis via Random Forest",
+    "version": "0.1",
+    "short_description": "UCI Adult Data analysis using SKLearn and Random Forest",
+    "full_description": "Using a Random Forest to train on UCI Adult Data Analysis",
+    "keywords": "uci adult, sklearn, random_forest, explainability, fairness, fairlearn, shap",
+    "author": "Sachith Withana",
+    "input_data": "https://archive.ics.uci.edu/dataset/2/adult",
+    "output_data": "https://github.iu.edu/swithana/mcwork/rf_sklearn/adult_model.pkl",
+    "ai_model": {
+        "name": "UCI Adult Random Forest model",
+        "version": "0.1",
+        "description": "Census classification problem using Random Forest",
+        "owner": "Sachith Withana",
+        "location": "https://github.iu.edu/swithana/mcwork/randomforest/adult_model.pkl",
+        "license": "BSD-3 Clause",
+        "framework": "sklearn",
+        "model_type": "random_forest",
+        "test_accuracy": 0.8616612927990174,
+        "model_structure": null,
+        "metrics": [
+            {
+                "key": "Test loss",
+                "value": 0.7
+            }
+        ]
+    },
+    "bias_analysis": {
+        "demographic_parity_diff": 0.18807341711946762,
+        "equal_odds_difference": 0.13578013433668856,
+        "true_positives": 1011,
+        "true_negatives": 4601,
+        "false_positives": 341,
+        "false_negatives": 560,
+        "false_positive_rate": 0.06900040469445569,
+        "false_negative_rate": 0.35646085295989816,
+        "true_positive_rate": 0.6435391470401018,
+        "true_negative_rate": 0.9309995953055443
+    },
+    "xai_analysis": null
+}

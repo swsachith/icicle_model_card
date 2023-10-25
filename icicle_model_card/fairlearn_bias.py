@@ -1,6 +1,7 @@
 from fairlearn.metrics import demographic_parity_difference, equalized_odds_difference
 from sklearn.metrics import confusion_matrix
 
+
 class BiasAnalyzer:
     """
     Provides automated capture of fairness metrics in a given AI workflow.

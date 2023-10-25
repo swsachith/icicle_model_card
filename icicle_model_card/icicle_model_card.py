@@ -71,7 +71,7 @@ class ModelCard:
         Overriding the __str__ to pretty print the model card in Json format.
         :return:
         """
-        return json.dumps(self.__dict__, cls=ModelCardJSONEncoder, indent=2)
+        return json.dumps(self.__dict__, cls=ModelCardJSONEncoder, indent=4, separators=(',', ': '))
 
     def populate_bias(self, dataset, true_labels, predicted_labels, sensitive_feature_name, sensitive_feature_data, model):
         bias_analyzer = BiasAnalyzer(dataset, true_labels, predicted_labels, sensitive_feature_name,
@@ -103,10 +103,8 @@ def save_mc(model_card, file_location):
     """
     Saves the model card as a json file.
     """
-    mc_json = json.dumps(model_card, cls=ModelCardJSONEncoder, indent=4)
-
     with open(file_location, 'w') as json_file:
-        json.dump(mc_json, json_file)
+        json.dump(model_card, json_file, cls=ModelCardJSONEncoder, indent=4, separators=(',', ': '))
 
 
 class ModelCardJSONEncoder(JSONEncoder):
