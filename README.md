@@ -95,6 +95,20 @@ The following shows an example usage for fairness information population.
 mc.populate_bias(X_test, y_test, predictions, "gender", X_test['sex'], clf)
 ```
 
+##### Running xai scanners
+
+For this, the user needs to provide the following:
+- train_dataset
+- column names
+- model
+- number of top n xai features (default=10)
+The following shows an example usage for fairness information population.
+```python
+mc.populate_xai(X_test, x_columns, model, 10)
+```
+
+
+
 ##### Saving the model card
 Verify the information in the model card
 ```python
