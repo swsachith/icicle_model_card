@@ -6,6 +6,7 @@ from json import JSONEncoder
 from jsonschema import validate
 import os.path
 from icicle_model_card.fairlearn_bias import BiasAnalyzer
+from icicle_model_card.shap_xai import ExplainabilityAnalyser
 
 
 SCHEMA_JSON = os.path.join(os.path.dirname(__file__), 'schema', 'schema.json')
@@ -78,6 +79,10 @@ class ModelCard:
                                           sensitive_feature_data, model)
 
         self.bias_analysis = bias_analyzer.calculate_bias_metrics()
+
+    def populate_xai(self, train_dataset, column_names, model, n_features=10):
+        xai_analyzer = ExplainabilityAnalyser(train_dataset, column_names, model)
+        self.xai_analysis = xai_analyzer.calculate_xai_features(n_features)
 
 
 def validate_mc(model_card):
