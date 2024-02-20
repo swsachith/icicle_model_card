@@ -61,6 +61,8 @@ class ModelCard:
     full_description: str
     keywords: str
     author: str
+    input_type: str
+    category: str
     input_data: Optional[str] = ""
     output_data: Optional[str] = ""
     ai_model: Optional[AIModel] = None

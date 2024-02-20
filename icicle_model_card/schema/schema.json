@@ -27,6 +27,10 @@
       "type": "string",
       "description": "The author or creator of the Model Card"
     },
+    "input_type": {
+      "type": "string",
+      "description": "Type of the input data"
+    },
     "input_data": {
       "type": "string",
       "description": "The ID of the Datasheet"
@@ -34,6 +38,15 @@
     "output_data": {
       "type": "string",
       "description": "The ID of the output if any"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "classification",
+        "regression",
+        "clustering",
+        "other"
+      ]
     },
     "documentation": {
       "type": "string",
@@ -118,7 +131,8 @@
         "license",
         "framework",
         "test_accuracy",
-        "model_type"
+        "model_type",
+        "input_type"
       ]
     },
     "bias_analysis": {
@@ -186,17 +200,17 @@
     }
   },
   "required": [
-        "name",
-        "version",
-        "short_description",
-        "full_description",
-        "author",
-        "keywords",
-        "input_data",
-        "output_data",
-        "ai_model",
-        "bias_analysis"
-      ],
+    "name",
+    "version",
+    "short_description",
+    "full_description",
+    "author",
+    "keywords",
+    "input_data",
+    "output_data",
+    "ai_model",
+    "bias_analysis"
+  ],
   "fields": {
     "metrics": {
       "type": "object",
