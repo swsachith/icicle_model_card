@@ -29,6 +29,7 @@ class AIModel:
     framework: str
     model_type: str
     test_accuracy: float
+    foundational_model: Optional[str] = ""
     model_structure: Optional[str] = ""
     metrics: List[Metric] = field(default_factory=list)
 

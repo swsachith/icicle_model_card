@@ -82,7 +82,11 @@
           "description": "Licence the model",
           "type": "string"
         },
-        "structure": {
+        "foundational_model": {
+          "description": "If a foundational model has been used, provide the model ID",
+          "type": "string"
+        },
+        "model_structure": {
           "description": "Structure of the model",
           "type": "string"
         },
