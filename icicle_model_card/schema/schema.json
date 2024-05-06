@@ -35,6 +35,10 @@
       "type": "string",
       "description": "The ID of the Datasheet"
     },
+    "input_type": {
+      "type": "string",
+      "description": "Type of the input data"
+    },
     "output_data": {
       "type": "string",
       "description": "The ID of the output if any"
@@ -147,43 +151,11 @@
         },
         "equal_odds_difference": {
           "type": "number"
-        },
-        "true_positives": {
-          "type": "integer"
-        },
-        "true_negatives": {
-          "type": "integer"
-        },
-        "false_positives": {
-          "type": "integer"
-        },
-        "false_negatives": {
-          "type": "integer"
-        },
-        "false_positive_rate": {
-          "type": "number"
-        },
-        "false_negative_rate": {
-          "type": "number"
-        },
-        "true_positive_rate": {
-          "type": "number"
-        },
-        "true_negative_rate": {
-          "type": "number"
         }
       },
       "required": [
         "demographic_parity_difference",
-        "equal_odds_difference",
-        "true_positives",
-        "true_negatives",
-        "false_positives",
-        "false_negatives",
-        "false_positive_rate",
-        "false_negative_rate",
-        "true_positive_rate",
-        "true_negative_rate"
+        "equal_odds_difference"
       ]
     },
     "xai_analysis": {
@@ -211,6 +183,7 @@
     "author",
     "keywords",
     "input_data",
+    "input_type",
     "output_data",
     "ai_model",
     "bias_analysis"

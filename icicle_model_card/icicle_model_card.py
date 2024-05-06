@@ -38,15 +38,6 @@ class AIModel:
 class BiasAnalysis:
     demographic_parity_difference: float
     equal_odds_difference: float
-    true_positives: int
-    true_negatives: int
-    false_positives: int
-    false_negatives: int
-    false_positive_rate: float
-    false_negative_rate: float
-    true_positive_rate: float
-    true_negative_rate: float
-
 
 @dataclass
 class ExplainabilityAnalysis:
@@ -64,6 +55,7 @@ class ModelCard:
     author: str
     input_type: str
     category: str
+    input_type: str
     input_data: Optional[str] = ""
     output_data: Optional[str] = ""
     ai_model: Optional[AIModel] = None
